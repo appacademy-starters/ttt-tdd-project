@@ -1,1 +1,0 @@
-# ttt-tdd-project
