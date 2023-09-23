@@ -12,13 +12,13 @@
     ✓ processes left inputs
 
   ComputerPlayer
-    1) can produce a list of all valid moves
-    2) can produce a list of all valid moves that excludes occupied slots
-    3) can randomly select moves to fill up a grid
-    4) can correctly move when there is a win on the board
-    5) can correctly block when there is an opposing win possible
-    6) will choose the win when there is choice between win and block
-    7) will block traps
+    ✓ can produce a list of all valid moves
+    ✓ can produce a list of all valid moves that excludes occupied slots
+    ✓ can randomly select moves to fill up a grid
+    ✓ can correctly move when there is a win on the board
+    ✓ can correctly block when there is an opposing win possible
+    ✓ will choose the win when there is choice between win and block
+    ✓ will block traps
 
   Tic Tac Toe
     ✓ records empty grid as no winner
@@ -29,60 +29,15 @@
     ✓ recognizes if there is no win yet
 
 
-  11 passing (29ms)
-  7 failing
-
-  1) ComputerPlayer
-       can produce a list of all valid moves:
-     TypeError: Cannot read properties of undefined (reading 'length')
-      at Context.<anonymous> (test/ttt-ai-spec.js:22:23)
-      at process.processImmediate (node:internal/timers:476:21)
-
-  2) ComputerPlayer
-       can produce a list of all valid moves that excludes occupied slots:
-     TypeError: Cannot read properties of undefined (reading 'length')
-      at Context.<anonymous> (test/ttt-ai-spec.js:41:23)
-      at process.processImmediate (node:internal/timers:476:21)
-
-  3) ComputerPlayer
-       can randomly select moves to fill up a grid:
-     TypeError: Cannot read properties of undefined (reading 'row')
-      at Context.<anonymous> (test/ttt-ai-spec.js:61:23)
-      at process.processImmediate (node:internal/timers:476:21)
-
-  4) ComputerPlayer
-       can correctly move when there is a win on the board:
-     AssertionError: expected undefined to deeply equal { row: 0, col: 2 }
-      at Context.<anonymous> (test/ttt-ai-spec.js:77:31)
-      at process.processImmediate (node:internal/timers:476:21)
-
-  5) ComputerPlayer
-       can correctly block when there is an opposing win possible:
-     AssertionError: expected undefined to deeply equal { row: 2, col: 2 }
-      at Context.<anonymous> (test/ttt-ai-spec.js:90:31)
-      at process.processImmediate (node:internal/timers:476:21)
-
-  6) ComputerPlayer
-       will choose the win when there is choice between win and block:
-     AssertionError: expected undefined to deeply equal { row: 0, col: 2 }
-      at Context.<anonymous> (test/ttt-ai-spec.js:103:31)
-      at process.processImmediate (node:internal/timers:476:21)
-
-  7) ComputerPlayer
-       will block traps:
-     AssertionError: expected undefined to deeply equal { row: 2, col: 1 }
-      at Context.<anonymous> (test/ttt-ai-spec.js:116:31)
-      at process.processImmediate (node:internal/timers:476:21)
-
-
+  18 passing (31ms)
 
 --------------------|---------|----------|---------|---------|------------------------
 File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s      
 --------------------|---------|----------|---------|---------|------------------------
-All files           |   34.09 |    31.94 |   43.75 |   34.93 |                        
+All files           |    41.5 |    33.75 |   43.75 |   42.02 |                        
  command.js         |      20 |      100 |       0 |      20 | 4-10                   
  computer-player.js |     100 |      100 |      75 |     100 |                        
  cursor.js          |     100 |      100 |     100 |     100 |                        
  screen.js          |   19.09 |     4.87 |   14.28 |      19 | 30-118,125-194,201-227 
- ttt.js             |   28.12 |    41.17 |      25 |   28.12 | 10-48,69-77            
+ ttt.js             |   27.27 |    33.33 |      25 |   27.27 | 10-49,71-79            
 --------------------|---------|----------|---------|---------|------------------------
