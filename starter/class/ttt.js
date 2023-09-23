@@ -38,14 +38,16 @@ class TTT {
   // }
 
   static changeTurn() {
-    Screen.render();
-    Screen.setGrid(this.cursor.row, this.cursor.col, this.playerTurn);
+    if (Screen.grid[this.cursor.row][this.cursor.col] === ' ' || Screen.grid[this.cursor.row][this.cursor.col] === '') {
+      Screen.render();
+      Screen.setGrid(this.cursor.row, this.cursor.col, this.playerTurn);
 
-    this.playerTurn == "O" ? this.playerTurn = "X" : this.playerTurn = "O";
+      this.playerTurn == "O" ? this.playerTurn = "X" : this.playerTurn = "O";
 
-    const winner = TTT.checkWin(Screen.grid);
+      const winner = TTT.checkWin(Screen.grid);
 
-    !winner ? Screen.render() : TTT.endGame(winner);
+      !winner ? Screen.render() : TTT.endGame(winner);
+    }
   }
 
   static checkWin(grid) {
