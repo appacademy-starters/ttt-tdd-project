@@ -1,0 +1,184 @@
+
+> tic-tac-toe@1.0.0 test
+> mocha
+
+
+
+  Cursor
+    ✓ initializes for a 3x3 grid
+    1) correctly processes down inputs
+    2) correctly processes up inputs
+    3) processes right inputs
+    4) processes left inputs
+
+  ComputerPlayer
+    5) can produce a list of all valid moves
+    6) can produce a list of all valid moves that excludes occupied slots
+    7) can randomly select moves to fill up a grid
+    8) can correctly move when there is a win on the board
+    9) can correctly block when there is an opposing win possible
+    10) will choose the win when there is choice between win and block
+    11) will block traps
+
+  Tic Tac Toe
+    12) records empty grid as no winner
+    13) recognizes horizontal wins
+    14) recognizes vertical wins
+    15) recognizes diagonal wins
+    16) recognizes ties
+    17) recognizes if there is no win yet
+
+
+  1 passing (22ms)
+  17 failing
+
+  1) Cursor
+       correctly processes down inputs:
+
+      AssertionError: expected [ 0, 0 ] to deeply equal [ 1, 0 ]
+      + expected - actual
+
+       [
+      +  1
+         0
+      -  0
+       ]
+      
+      at Context.<anonymous> (test/cursor-spec.js:23:46)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  2) Cursor
+       correctly processes up inputs:
+
+      AssertionError: expected [ 0, 0 ] to deeply equal [ 1, 0 ]
+      + expected - actual
+
+       [
+      +  1
+         0
+      -  0
+       ]
+      
+      at Context.<anonymous> (test/cursor-spec.js:38:46)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  3) Cursor
+       processes right inputs:
+
+      AssertionError: expected [ 0, 0 ] to deeply equal [ 0, 1 ]
+      + expected - actual
+
+       [
+         0
+      -  0
+      +  1
+       ]
+      
+      at Context.<anonymous> (test/cursor-spec.js:47:46)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  4) Cursor
+       processes left inputs:
+
+      AssertionError: expected [ 0, 0 ] to deeply equal [ 0, 1 ]
+      + expected - actual
+
+       [
+         0
+      -  0
+      +  1
+       ]
+      
+      at Context.<anonymous> (test/cursor-spec.js:62:46)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  5) ComputerPlayer
+       can produce a list of all valid moves:
+     TypeError: Cannot read properties of undefined (reading 'length')
+      at Context.<anonymous> (test/ttt-ai-spec.js:22:23)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  6) ComputerPlayer
+       can produce a list of all valid moves that excludes occupied slots:
+     TypeError: Cannot read properties of undefined (reading 'length')
+      at Context.<anonymous> (test/ttt-ai-spec.js:41:23)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  7) ComputerPlayer
+       can randomly select moves to fill up a grid:
+     TypeError: Cannot read properties of undefined (reading 'row')
+      at Context.<anonymous> (test/ttt-ai-spec.js:61:23)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  8) ComputerPlayer
+       can correctly move when there is a win on the board:
+     AssertionError: expected undefined to deeply equal { row: 0, col: 2 }
+      at Context.<anonymous> (test/ttt-ai-spec.js:77:31)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  9) ComputerPlayer
+       can correctly block when there is an opposing win possible:
+     AssertionError: expected undefined to deeply equal { row: 2, col: 2 }
+      at Context.<anonymous> (test/ttt-ai-spec.js:90:31)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  10) ComputerPlayer
+       will choose the win when there is choice between win and block:
+     AssertionError: expected undefined to deeply equal { row: 0, col: 2 }
+      at Context.<anonymous> (test/ttt-ai-spec.js:103:31)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  11) ComputerPlayer
+       will block traps:
+     AssertionError: expected undefined to deeply equal { row: 2, col: 1 }
+      at Context.<anonymous> (test/ttt-ai-spec.js:116:31)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  12) Tic Tac Toe
+       records empty grid as no winner:
+     AssertionError: expected undefined to be false
+      at Context.<anonymous> (test/ttt-spec.js:15:37)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  13) Tic Tac Toe
+       recognizes horizontal wins:
+     AssertionError: expected undefined to equal 'X'
+      at Context.<anonymous> (test/ttt-spec.js:25:35)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  14) Tic Tac Toe
+       recognizes vertical wins:
+     AssertionError: expected undefined to equal 'X'
+      at Context.<anonymous> (test/ttt-spec.js:48:35)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  15) Tic Tac Toe
+       recognizes diagonal wins:
+     AssertionError: expected undefined to equal 'X'
+      at Context.<anonymous> (test/ttt-spec.js:72:35)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  16) Tic Tac Toe
+       recognizes ties:
+     AssertionError: expected undefined to equal 'T'
+      at Context.<anonymous> (test/ttt-spec.js:88:35)
+      at process.processImmediate (node:internal/timers:476:21)
+
+  17) Tic Tac Toe
+       recognizes if there is no win yet:
+     AssertionError: expected undefined to be false
+      at Context.<anonymous> (test/ttt-spec.js:98:37)
+      at process.processImmediate (node:internal/timers:476:21)
+
+
+
+--------------------|---------|----------|---------|---------|-------------------
+File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+--------------------|---------|----------|---------|---------|-------------------
+All files           |   20.83 |        0 |   29.03 |   22.38 |                   
+ command.js         |      20 |      100 |       0 |      20 | 4-10              
+ computer-player.js |     100 |      100 |      75 |     100 |                   
+ cursor.js          |      80 |      100 |   71.42 |      80 | 18-22             
+ screen.js          |   15.45 |        0 |       0 |      17 | 30-227            
+ ttt.js             |   16.66 |        0 |      25 |   16.66 | 8-49              
+--------------------|---------|----------|---------|---------|-------------------
