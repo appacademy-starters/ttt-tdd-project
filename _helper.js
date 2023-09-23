@@ -71,11 +71,29 @@ function isFullBoard(grid) {
     }
     return true;
 }
-module.exports = {
+
+function emptySlotsInBoard(grid) {
+    let result = [];
+
+    for (let row = 0; row < grid.length; row++) {
+        for (let col = 0; col < grid[0].length; col++) {
+            if (grid[row][col] === ' ' || grid[row][col] === '') {
+                result.push({ 'row': row, 'col': col });
+            }
+        }
+    }
+
+    return result;
+}
+
+module.exports = { 
     isEmptyGrid,
     isHorizontalWin,
     isVerticalWin,
     isDiagonalWin,
     isTie,
-    isFullBoard
+    isFullBoard,
+
+    //ttt-ai
+    emptySlotsInBoard
 }
