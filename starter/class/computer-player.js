@@ -1,9 +1,12 @@
-const { emptySlotsInBoard } = require("../../_helper");
-const TTT = require('./../class/ttt');
+const { emptySlotsInBoard, isEmptyGrid, isFullBoard } = require("../../_helper");
+// const TTT = require('./ttt');
+
 class ComputerPlayer {
 
   static getValidMoves(grid) {
     // Your code here
+    // if (emptySlotsInBoard(grid)) return emptySlotsInBoard(grid);
+
     return emptySlotsInBoard(grid);
   }
 
@@ -29,38 +32,57 @@ class ComputerPlayer {
   }
 
   static getSmartMove(grid, symbol) {
-    let validMoves = ComputerPlayer.getValidMoves(grid);
-    
-    const options = ['X', 'O'] // the options it can play
+    if (isEmptyGrid(grid)) {
+      return ComputerPlayer.randomMove(grid);
+    } else {
+      if (!isFullBoard(grid)) {
+        function smartMoveHelper() {
+          let validMoves = ComputerPlayer.getValidMoves(grid);
 
-    for (let i = 0; i < validMoves.length; i++) {
-      let validMove = validMoves[i];
+          const options = ['X', 'O'] // the options it can play
 
-      for (let j = 0; j < options.length; j++) {
-        grid[validMove.row][validMove.col] = symbol;
+          for (let i = 0; i < validMoves.length; i++) {
+            let validMove = validMoves[i];
 
-        let winner = TTT.checkWin(grid);
-        if (winner) {
-          grid[validMove.row][validMove.col] = 'X';
-          return validMove;
-        } else {
-          symbol === 'X' ? symbol = 'O' : symbol = 'X';
-          grid[validMove.row][validMove.col] = ' ';
+            for (let j = 0; j < options.length; j++) {
+              grid[validMove.row][validMove.col] = symbol;
+
+              const TTT = require('./ttt');
+              // console.log(TTT)
+              let winner = TTT.checkWin( grid);
+              if (winner) {
+                grid[validMove.row][validMove.col] = 'X';
+                return validMove;
+              } else {
+                symbol === 'X' ? symbol = 'O' : symbol = 'X';
+                grid[validMove.row][validMove.col] = ' ';
+              }
+            }
+          }
         }
+
+        let smartMove = smartMoveHelper();
+        if (!smartMove) {
+          return ComputerPlayer.randomMove(grid);
+        }
+        return smartMove;
       }
     }
+
+    return null;
   }
 }
 
-let grid = [['X', ' ', ' '],
-['X', ' ', ' '],
-['O', 'O', ' ']]
+let grid = [['X', 'X', 'X'],
+['X', 'X', 'X'],
+['X', 'X', 'X']]
 
 
 // console.log(emptySlotsInBoard(grid).length)
 // let validMoves = ComputerPlayer.getValidMoves(grid);
-let smartMove = ComputerPlayer.getSmartMove(grid, 'X');
+// let smartMove = ComputerPlayer.getSmartMove(grid, 'X');
 // console.log(smartMove);
+// grid[smartMove.row][smartMove.col] = 'X'
 // console.log(grid)
 
 module.exports = ComputerPlayer;
