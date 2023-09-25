@@ -1,13 +1,15 @@
 const Screen = require("./screen");
 const Cursor = require("./cursor");
 
-const { isEmptyGrid, isHorizontalWin, isVerticalWin, isDiagonalWin, isTie, isFullBoard } = require('../../_helper')
+const { isEmptyGrid, isHorizontalWin, isVerticalWin, isDiagonalWin, isTie, isFullBoard } = require('../../_helper');
+const ComputerPlayer = require("./computer-player");
 
 class TTT {
 
   constructor() {
 
     this.playerTurn = "O";
+    ComputerPlayer.symbol = 'X';
 
     this.grid = [[' ', ' ', ' '],
     [' ', ' ', ' '],
@@ -40,13 +42,37 @@ class TTT {
   static changeTurn() {
     if (Screen.grid[this.cursor.row][this.cursor.col] === ' ' || Screen.grid[this.cursor.row][this.cursor.col] === '') {
       Screen.render();
+      Screen.setTextColor(this.cursor.row, this.cursor.col, 'white');
       Screen.setGrid(this.cursor.row, this.cursor.col, this.playerTurn);
 
-      this.playerTurn == "O" ? this.playerTurn = "X" : this.playerTurn = "O";
+      // this.playerTurn == "O" ? this.playerTurn = "X" : this.playerTurn = "O";
 
       const winner = TTT.checkWin(Screen.grid);
 
-      !winner ? Screen.render() : TTT.endGame(winner);
+      // !winner ? Screen.render() : TTT.endGame(winner);
+
+      if (winner) {
+        TTT.endGame(winner);
+      } else {
+        this.placeCpuMove();
+      }
+    }
+  }
+
+  cpuMove = () => {
+    let move = ComputerPlayer.getSmartMove(Screen.grid, ComputerPlayer.symbol);
+
+    return move;
+  }
+
+  placeCpuMove = () => {
+    const move = this.cpuMove();
+
+    Screen.setTextColor(move.row, move.col, 'white');
+    Screen.setGrid(move.row, move.col, ComputerPlayer.symbol);
+    Screen.render();
+    if (TTT.checkWin(Screen.grid)) {
+      TTT.endGame(TTT.checkWin(Screen.grid));
     }
   }
 
@@ -56,6 +82,7 @@ class TTT {
     // Return 'O' if player O wins
     // Return 'T' if the game is a tie
     // Return false if the game has not ended
+    // console.log(this);
 
     if (isFullBoard(grid)) {
       return isTie(grid);
